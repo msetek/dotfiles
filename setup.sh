@@ -2,4 +2,4 @@
 
 defaults write com.apple.dock autohide -bool true
 
-echo "All Done"
+echo "Configuration completed"

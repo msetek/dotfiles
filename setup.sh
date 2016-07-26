@@ -28,7 +28,7 @@ install_dotfile() {
 }
 
 configure_emacs() {
-    if brew_cask_installed emacs && [[ -f spacemacs ]]; then
+    if brew_cask_installed emacs && [[ -f "$WORKDIR/spacemacs" ]]; then
         # install spacemacs
 	echo "Installing spacemacs"
         git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d

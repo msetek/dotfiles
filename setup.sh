@@ -4,7 +4,9 @@ readonly WORKDIR=$(dirname $(grealpath --canonicalize-existing --logical "$0"))
 
 macos_dock() {
     # Configure the dock
+    echo "Configure the macOS dock"
     defaults write com.apple.dock autohide -bool true
+    killall "Dock" &> /dev/null
 }
 
 brew_cask_installed() {

@@ -7,8 +7,6 @@
 ;; should be the left option (aka. "left alt") key.
 (setq mac-right-option-modifier nil)
 
-;; Map right command ()
-
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable

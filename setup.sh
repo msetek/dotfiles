@@ -1,6 +1,6 @@
 #/usr/bin/env bash
 
-readonly WORKDIR=$(dirname $(grealpath --canonicalize-existing --logical "$0"))
+readonly WORKDIR=$(dirname $(grealpath --canonicalize-existing --logical "$BASH_SOURCE"))
 
 macos_dock() {
     # Configure the dock

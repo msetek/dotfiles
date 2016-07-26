@@ -46,17 +46,37 @@ configure_emacs() {
     fi
 }
 
+anyenv_install() {
+    local -r NAME="$1"
+    local -r ENV="$2"
+    local -r VERSION="$3"
+
+    echo "Install $NAME"
+    anyenv install "$ENV"
+    eval "$(anyenv init -)"
+    "$ENV" install "$VERSION"
+    "$ENV" global "$VERSION"
+    eval "$(anyenv init -)"
+
+}
+
 configure_anyenv() {
     git clone https://github.com/riywo/anyenv ~/.anyenv
     echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bash_profile
     echo 'eval "$(anyenv init -)"' >> ~/.bash_profile
-    source ~/.bash_profile
 
-    # anyenv install rbenv
-    # anyenv install plenv
+    export PATH="$HOME/.anyenv/bin:$PATH"
+    eval "$(anyenv init -)"
+
+    anyenv_install "Ruby" "rbenv" "2.3.1"
+    anyenv_install "Perl" "plenv" "5.24.0"
+
     # anyenv install pyenv
     # anyenv install ndenv
     # anyenv install jenv
+    # anyenv install scalaenv
+    # anyenv install sbtenv
+    # anyenv install hsenv
 }
 
 macos_dock

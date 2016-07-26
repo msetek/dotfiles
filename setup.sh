@@ -46,7 +46,21 @@ configure_emacs() {
     fi
 }
 
+configure_anyenv() {
+    git clone https://github.com/riywo/anyenv ~/.anyenv
+    echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bash_profile
+    echo 'eval "$(anyenv init -)"' >> ~/.bash_profile
+    source ~/.bash_profile
+
+    # anyenv install rbenv
+    # anyenv install plenv
+    # anyenv install pyenv
+    # anyenv install ndenv
+    # anyenv install jenv
+}
+
 macos_dock
 configure_emacs
+configure_anyenv
 
 echo "Configuration completed"

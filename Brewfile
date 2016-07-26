@@ -1,3 +1,4 @@
+brew 'coreutils'
 cask 'java'
 brew 'git'
 brew 'sqlite'

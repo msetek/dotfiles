@@ -24,7 +24,6 @@ brew 'erlang'
 brew 'elixir'
 brew 'chicken'
 brew 'guile'
-cask 'gambit-c'
 cask 'petite-chez-scheme'
 
 brew 'jetty-runner'

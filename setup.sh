@@ -117,6 +117,7 @@ add_login_item() {
 add_login_items() {
     add_login_item 'Spectacle' '/Applications/Spectacle.app'
     add_login_item 'Jumpcut' '/Applications/Jumpcut.app'
+    add_login_item 'Alfred 3' '/Applications/Alfred 3.app'
 }
 
 logout_user() {

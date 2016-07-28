@@ -28,6 +28,8 @@ brew 'guile'
 cask 'petite-chez-scheme'
 brew 'mosml'
 brew 'smlnj'
+brew 'sbcl'
+brew 'clozure-cl'
 
 brew 'jetty-runner'
 brew 'dos2unix'

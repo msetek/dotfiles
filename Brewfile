@@ -16,6 +16,8 @@ brew 'httpie'
 brew 'pandoc'
 brew 'aspell', args: ['with-lang-nb', 'with-lang-en']
 brew 'mongoose'
+brew 'postgresql'
+
 cask 'mactex'
 cask 'iterm2'
 cask 'google-chrome'

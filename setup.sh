@@ -28,6 +28,7 @@ install_dotfile() {
 }
 
 install_dotfiles() {
+    echo "Link up dotfiles"
     pushd "$BUNDLEDIR" > /dev/null
     for dotfile in *; do
         [[ "$dotfile" == "setup.sh" ]] && continue
@@ -92,6 +93,7 @@ configure_anyenv() {
 
 ssh_fix_config() {
     if grep -e '^\ *SendEnv LANG LC_\*' /etc/ssh/ssh_config > /dev/null; then
+        echo "Patch /etc/ssh/ssh_config"
         sudo patch -p0 <<'EOF'
 --- /etc/ssh/ssh_config.orig    2016-07-28 02:59:24.000000000 +0200
 +++ /etc/ssh/ssh_config 2016-07-28 02:59:35.000000000 +0200

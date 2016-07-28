@@ -30,6 +30,7 @@ brew 'mosml'
 brew 'smlnj'
 brew 'sbcl'
 brew 'clozure-cl'
+brew 'leiningen'
 
 brew 'jetty-runner'
 brew 'dos2unix'

@@ -26,6 +26,8 @@ brew 'elixir'
 brew 'chicken'
 brew 'guile'
 cask 'petite-chez-scheme'
+brew 'mosml'
+brew 'smlnj'
 
 brew 'jetty-runner'
 brew 'dos2unix'

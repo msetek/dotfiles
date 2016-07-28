@@ -1,5 +1,4 @@
 brew 'coreutils'
-cask 'java'
 brew 'git'
 brew 'sqlite'
 brew 'mas'
@@ -18,6 +17,9 @@ brew 'aspell', args: ['with-lang-nb', 'with-lang-en']
 brew 'mongoose'
 brew 'postgresql'
 
+# languages not under anyenv
+cask 'java'
+brew 'typesafe-activator'
 cask 'mactex'
 cask 'iterm2'
 cask 'google-chrome'

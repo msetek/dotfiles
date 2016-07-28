@@ -30,6 +30,7 @@ cask 'petite-chez-scheme'
 brew 'jetty-runner'
 brew 'dos2unix'
 brew 'dict'
+brew 'graphviz'
 # autotools
 brew 'autoconf'
 brew 'automake'

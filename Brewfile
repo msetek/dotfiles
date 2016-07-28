@@ -20,6 +20,8 @@ brew 'postgresql'
 # languages not under anyenv
 cask 'java'
 brew 'typesafe-activator'
+brew 'erlang'
+brew 'elixir'
 cask 'mactex'
 cask 'iterm2'
 cask 'google-chrome'

@@ -108,10 +108,22 @@ EOF
     fi
 }
 
+add_login_item() {
+    local -r ITEM_NAME="$1"
+    local -r ITEM_PATH="$2"
+    osascript -e "tell application \"System Events\" to make new login item with properties { path: \"$ITEM_PATH\", name: \"$ITEM_NAME\" } at end"
+}
+
+add_login_items() {
+    add_login_item 'Spectacle' '/Applications/Spectacle.app'
+    add_login_item 'Jumpcut' '/Applications/Jumpcut.app'
+}
+
 macos_dock
 install_dotfiles
 configure_emacs
 configure_anyenv
 ssh_fix_config
+add_login_items
 
 echo "Configuration completed"

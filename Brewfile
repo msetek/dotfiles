@@ -27,6 +27,16 @@ brew 'guile'
 cask 'gambit-c'
 cask 'petite-chez-scheme'
 
+# autotools
+brew 'autoconf'
+brew 'automake'
+brew 'gettext'
+brew 'libtool'
+brew 'pkgconfig'
+brew 'shtool'
+brew 'autogen'
+brew 'autoconf-archive'
+
 cask 'mactex'
 cask 'iterm2'
 cask 'google-chrome'

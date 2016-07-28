@@ -119,6 +119,10 @@ add_login_items() {
     add_login_item 'Jumpcut' '/Applications/Jumpcut.app'
 }
 
+logout_user() {
+    osascript -e 'tell app "System Events" to log out'
+}
+
 macos_dock
 install_dotfiles
 configure_emacs
@@ -127,3 +131,4 @@ ssh_fix_config
 add_login_items
 
 echo "Configuration completed"
+logout_user

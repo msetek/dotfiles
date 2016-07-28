@@ -82,11 +82,6 @@ configure_anyenv() {
         anyenv_install "Perl" "plenv" "5.24.0"
     fi
 
-    # if [[ ! -e ~/.profile.d/anyenv.sh ]]; then
-    #     echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.profile.d/anyenv.sh
-    #     echo 'eval "$(anyenv init -)"' >> ~/.profile.d/anyenv.sh
-    # fi
-
     # anyenv install pyenv
     # anyenv install ndenv
     # anyenv install jenv
@@ -95,21 +90,8 @@ configure_anyenv() {
     # anyenv install hsenv
 }
 
-configure_bash() {
-    [[ -r ~/.bash_profile ]] && return
-
-    cat <<'EOF' >> ~/.bash_profile
-for script in ~/.profile.d/*.sh; do
-  if [[ -r $script ]]; then
-    source $script
-  fi
-done
-EOF
-}
-
 macos_dock
 install_dotfiles
-configure_bash
 configure_emacs
 configure_anyenv
 

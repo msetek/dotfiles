@@ -19,8 +19,6 @@ install_dotfile() {
 
     [[ -e "$DOTFILE" ]] || return
 
-    echo "Installing dotfile: $DOTFILE"
-
     if [[ -L "$HOMEFILE" && ! -d $DOTFILE ]]; then
         ln -svf "$DOTFILE" "$HOMEFILE"
     else
@@ -29,9 +27,21 @@ install_dotfile() {
     fi
 }
 
+install_dotfiles() {
+    pushd "$BUNDLEDIR" > /dev/null
+    for dotfile in *; do
+        [[ "$dotfile" == "setup.sh" ]] && continue
+        [[ "$dotfile" == "README.md" ]] && continue
+        install_dotfile $dotfile
+    done
+    popd > /dev/null
+}
+
 configure_emacs() {
     if brew_cask_installed emacs && [[ -f "$BUNDLEDIR/spacemacs" ]]; then
         # install spacemacs
+        [[ -d ~/.emacs.d ]] && return
+
 	      echo "Installing spacemacs"
         git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
@@ -61,15 +71,21 @@ anyenv_install() {
 }
 
 configure_anyenv() {
-    git clone https://github.com/riywo/anyenv ~/.anyenv
-    echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bash_profile
-    echo 'eval "$(anyenv init -)"' >> ~/.bash_profile
 
-    export PATH="$HOME/.anyenv/bin:$PATH"
-    eval "$(anyenv init -)"
+    if [[ ! -d ~/.anyenv ]]; then
+        git clone https://github.com/riywo/anyenv ~/.anyenv
 
-    anyenv_install "Ruby" "rbenv" "2.3.1"
-    anyenv_install "Perl" "plenv" "5.24.0"
+        export PATH="$HOME/.anyenv/bin:$PATH"
+        eval "$(anyenv init -)"
+
+        anyenv_install "Ruby" "rbenv" "2.3.1"
+        anyenv_install "Perl" "plenv" "5.24.0"
+    fi
+
+    # if [[ ! -e ~/.profile.d/anyenv.sh ]]; then
+    #     echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.profile.d/anyenv.sh
+    #     echo 'eval "$(anyenv init -)"' >> ~/.profile.d/anyenv.sh
+    # fi
 
     # anyenv install pyenv
     # anyenv install ndenv
@@ -79,7 +95,21 @@ configure_anyenv() {
     # anyenv install hsenv
 }
 
+configure_bash() {
+    [[ -r ~/.bash_profile ]] && return
+
+    cat <<'EOF' >> ~/.bash_profile
+for script in ~/.profile.d/*.sh; do
+  if [[ -r $script ]]; then
+    source $script
+  fi
+done
+EOF
+}
+
 macos_dock
+install_dotfiles
+configure_bash
 configure_emacs
 configure_anyenv
 

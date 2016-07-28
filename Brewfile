@@ -30,6 +30,7 @@ brew 'smlnj'
 brew 'sbcl'
 brew 'clozure-cl'
 brew 'leiningen'
+brew 'ghc'
 
 brew 'jetty-runner'
 brew 'dos2unix'

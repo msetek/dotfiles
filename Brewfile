@@ -1,7 +1,6 @@
 brew 'coreutils'
 brew 'git'
 brew 'sqlite'
-brew 'mas'
 brew 'shellcheck'
 brew 'ssh-copy-id'
 brew 'wget'

@@ -48,6 +48,8 @@ cask 'skype'
 cask 'spotify'
 cask 'prezi'
 cask 'dockertoolbox'
+cask 'otto'
+
 #brew 'aciinema'
 #brew 'remake'
 #cask 'intellij-idea-ce'

@@ -31,6 +31,8 @@ brew 'jetty-runner'
 brew 'dos2unix'
 brew 'dict'
 brew 'graphviz'
+brew 'imagemagick'
+
 # autotools
 brew 'autoconf'
 brew 'automake'

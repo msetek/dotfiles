@@ -15,6 +15,7 @@ brew 'httpie'
 brew 'pandoc'
 brew 'aspell', args: ['with-lang-nb', 'with-lang-en']
 brew 'mongoose'
+brew 'nginx'
 brew 'postgresql'
 
 # languages not under anyenv

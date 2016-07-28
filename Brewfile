@@ -27,6 +27,8 @@ brew 'guile'
 cask 'gambit-c'
 cask 'petite-chez-scheme'
 
+brew 'jetty-runner'
+brew 'dos2unix'
 # autotools
 brew 'autoconf'
 brew 'automake'

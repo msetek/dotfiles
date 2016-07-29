@@ -32,6 +32,7 @@ values."
      ;; better-defaults
      emacs-lisp
      git
+     sml
      ;; markdown
      ;; org
      ;; (shell :variables

@@ -35,11 +35,13 @@ brew 'leiningen'
 brew 'ghc'
 brew 'haskell-stack'
 
+# misc
 brew 'jetty-runner'
 brew 'dos2unix'
 brew 'dict'
 brew 'graphviz'
 brew 'imagemagick'
+brew 'antiword'
 
 # autotools
 brew 'autoconf'

@@ -33,6 +33,7 @@ brew 'sbcl'
 brew 'clozure-cl'
 brew 'leiningen'
 brew 'ghc'
+brew 'haskell-stack'
 
 brew 'jetty-runner'
 brew 'dos2unix'

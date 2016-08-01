@@ -63,7 +63,7 @@ cask 'emacs'
 cask 'skype'
 cask 'spotify'
 cask 'prezi'
-cask 'dockertoolbox'
+#cask 'docker-toolbox'
 #cask 'otto'
 
 #brew 'aciinema'

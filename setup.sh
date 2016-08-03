@@ -9,6 +9,10 @@ macos_dock() {
     killall "Dock" &> /dev/null
 }
 
+macos_full_keyboard_access() {
+    defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+}
+
 brew_cask_installed() {
     brew cask info $1 &> /dev/null
 }
@@ -125,6 +129,7 @@ logout_user() {
 }
 
 macos_dock
+macos_full_keyboard_access
 install_dotfiles
 configure_emacs
 configure_anyenv

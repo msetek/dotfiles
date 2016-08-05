@@ -3,7 +3,7 @@
 ;; It must be stored in your home directory.
 
 ;; Unmap the right option (aka. "alt gr" / "right alt") key so that one can type
-;; stuff like [], {} and | on norwegian keyboard layout. Now, the only meta-key
+;; stuff like [], {} and | on a "ISO" keyboard layout. Now, the only meta-key
 ;; should be the left option (aka. "left alt") key.
 (setq mac-right-option-modifier nil)
 

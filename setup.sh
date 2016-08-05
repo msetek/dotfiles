@@ -10,6 +10,7 @@ macos_dock() {
 }
 
 macos_full_keyboard_access() {
+    echo "Enabling full keyboard access for all controls (enable Tab in modal dialogs, menu windows, etc.)"
     defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 }
 

@@ -96,6 +96,11 @@ configure_anyenv() {
     # anyenv install hsenv
 }
 
+configure_postgres() {
+    brew services start postgresql
+    createdb $USER
+}
+
 ssh_fix_config() {
     if grep -e '^\ *SendEnv LANG LC_\*' /etc/ssh/ssh_config > /dev/null; then
         echo "Patch /etc/ssh/ssh_config"

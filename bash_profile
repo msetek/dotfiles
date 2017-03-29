@@ -9,3 +9,4 @@ done
 for script in $(brew --prefix)/etc/bash_completion.d/*; do
     source $script
 done
+

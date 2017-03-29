@@ -3,7 +3,7 @@
 ;; It must be stored in your home directory.
 
 ;; Unmap the right option (aka. "alt gr" / "right alt") key so that one can type
-;; stuff like [], {} and | on norwegian keyboard layout. Now, the only meta-key
+;; stuff like [], {} and | on a "ISO" keyboard layout. Now, the only meta-key
 ;; should be the left option (aka. "left alt") key.
 (setq mac-right-option-modifier nil)
 
@@ -23,6 +23,11 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     go
+     sql
+     ruby
+     markdown
+     javascript
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -33,6 +38,15 @@ values."
      emacs-lisp
      git
      sml
+     msetek
+     racket
+     ocaml
+     haskell
+     swift
+     scala
+     common-lisp
+     games
+     ruby-on-rails
      ;; markdown
      ;; org
      ;; (shell :variables
@@ -259,3 +273,17 @@ you should place your code here."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (projectile-rails inflections go-guru go-eldoc go-mode typit mmt pacmacs dash-functional 2048-game slime-company slime sql-indent noflet ensime sbt-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby mmm-mode markdown-toc gh-md web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc uuidgen toc-org org-plus-contrib org-bullets link-hint intero flycheck hlint-refactor hide-comnt helm-hoogle git-link eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff dumb-jump f company-ghci company-ghc company column-enforce-mode ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe utop use-package tuareg swift-mode spacemacs-theme spaceline smooth-scrolling smeargle shm scala-mode restart-emacs rainbow-delimiters racket-mode quelpa popwin persp-mode pcre2el paradox page-break-lines orgit open-junk-file ocp-indent ob-sml neotree move-text merlin markdown-mode magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-ag haskell-snippets google-translate golden-ratio gitconfig-mode gitattributes-mode git-timemachine git-messenger ghc flx-ido fill-column-indicator feature-mode fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word coffee-mode cmm-mode clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

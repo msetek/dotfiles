@@ -25,30 +25,27 @@ values."
      ;; ----------------------------------------------------------------
      ;; auto-completion
      ;; better-defaults
-     go
-     sql
-     ruby
-     markdown
-     javascript
+
      ansible
-     html
-     markdown
-     haskell
-     yaml
-     javascript
-     ruby
-     scala
-     emacs-lisp
-     git
-     sml
-     racket
-     ocaml
-     haskell
-     swift
-     scala
      common-lisp
+     emacs-lisp
      games
+     git
+     go
+     haskell
+     html
+     javascript
+     markdown
+     ocaml
+     racket
+     ruby
      ruby-on-rails
+     scala
+     sml
+     sql
+     swift
+     yaml
+
      msetek
 
      ;; markdown

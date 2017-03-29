@@ -2,11 +2,6 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
-;; Unmap the right option (aka. "alt gr" / "right alt") key so that one can type
-;; stuff like [], {} and | on a "ISO" keyboard layout. Now, the only meta-key
-;; should be the left option (aka. "left alt") key.
-(setq mac-right-option-modifier nil)
-
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -23,11 +18,6 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     go
-     sql
-     ruby
-     markdown
-     javascript
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -35,10 +25,22 @@ values."
      ;; ----------------------------------------------------------------
      ;; auto-completion
      ;; better-defaults
+     go
+     sql
+     ruby
+     markdown
+     javascript
+     ansible
+     html
+     markdown
+     haskell
+     yaml
+     javascript
+     ruby
+     scala
      emacs-lisp
      git
      sml
-     msetek
      racket
      ocaml
      haskell
@@ -47,6 +49,8 @@ values."
      common-lisp
      games
      ruby-on-rails
+     msetek
+
      ;; markdown
      ;; org
      ;; (shell :variables
@@ -269,6 +273,12 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  ;; Unmap the right option (aka. "alt gr" / "right alt") key so that one can type
+  ;; stuff like [], {} and | on norwegian keyboard layout. Now, the only meta-key
+  ;; should be the left option (aka. "left alt") key.
+  (setq mac-right-option-modifier nil)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

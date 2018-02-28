@@ -44,6 +44,7 @@ install_dotfiles() {
     for dotfile in *; do
         [[ "$dotfile" == "setup.sh" ]] && continue
         [[ "$dotfile" == "README.md" ]] && continue
+        [[ "$dotfile" == "bin" ]] && continue
         install_dotfile $dotfile
     done
     popd > /dev/null
@@ -134,6 +135,21 @@ add_login_items() {
     add_login_item 'Spectacle' '/Applications/Spectacle.app'
     add_login_item 'Jumpcut' '/Applications/Jumpcut.app'
     add_login_item 'Alfred 3' '/Applications/Alfred 3.app'
+}
+
+add_binfiles() {
+    if [[ ! -d ~/bin ]]; then
+        mkdir -p ~/bin || return
+    fi
+
+    pushd "$BUNDLEDIR/bin" > /dev/null
+    local f
+    for f in "*"; do
+        if [[ -f $f && ! -e ~/bin/$f ]]; then
+            ln -sv "$f" "~/bin/$f"
+        fi
+    done
+    popd > /dev/null
 }
 
 logout_user() {

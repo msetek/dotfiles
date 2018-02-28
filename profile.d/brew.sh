@@ -13,3 +13,6 @@ setup_bash_completion() {
 
 setup_bash_completion
 unset setup_bash_completion
+
+export PATH="/usr/local/sbin:$PATH"
+

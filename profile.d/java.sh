@@ -17,3 +17,6 @@ java-skeleton-project() {
         echo "maven is not installed"
     fi
 }
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+

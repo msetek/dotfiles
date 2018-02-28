@@ -2,13 +2,6 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
-;; Unmap the right option (aka. "alt gr" / "right alt") key so that one can type
-;; stuff like [], {} and | on a "ISO" keyboard layout. Now, the only meta-key
-;; should be the left option (aka. "left alt") key.
-(setq mac-right-option-modifier nil)
-
-(global-set-key (kbd "C-+") 'avy-goto-word-or-subword-1)
-
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -23,47 +16,40 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
+   ;; ----------------------------------------------------------------
+   ;; Example of useful layers you may want to use right away.
+   ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
+   ;; <M-m f e R> (Emacs style) to install them.
+   ;; ----------------------------------------------------------------
+   ;; auto-completion
+   ;; better-defaults
    dotspacemacs-configuration-layers
    '(
-     clojure
-     rust
-     go
      ansible
-     python
-     nginx
-     yaml
-     graphviz
-     html
-     sql
-     ruby
-     markdown
-     javascript
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
-     ;; auto-completion
-     ;; better-defaults
-     emacs-lisp
-     git
-     sml
-     racket
-     ocaml
-     haskell
-     swift
-     scala
+     clojure
      common-lisp
+     emacs-lisp
      games
+     git
+     go
+     graphviz
+     haskell
+     html
+     javascript
+     markdown
+     nginx
+     ocaml
+     python
+     racket
+     ruby
      ruby-on-rails
-     ;; markdown
-     ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
-     ;; syntax-checking
-     ;; version-control
+     rust
+     scala
+     sml
+     sql
+     swift
+     yaml
+
      msetek
      )
    ;; List of additional packages that will be installed without being
@@ -281,6 +267,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
   (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
   ;; Borrowed from Emacs-guru Magnar Sveen
   (defun cleanup-buffer ()
@@ -290,4 +277,13 @@ Including indent-buffer, which should not be called automatically on save."
     (untabify-buffer)
     (delete-trailing-whitespace)
     (indent-buffer))
+
+
+  ;; Unmap the right option (aka. "alt gr" / "right alt") key so that one can type
+  ;; stuff like [], {} and | on norwegian keyboard layout. Now, the only meta-key
+  ;; should be the left option (aka. "left alt") key.
+  (setq mac-right-option-modifier nil)
+
+  (global-set-key (kbd "C-+") 'avy-goto-word-or-subword-1)
+
   )

@@ -7,6 +7,8 @@
 ;; should be the left option (aka. "left alt") key.
 (setq mac-right-option-modifier nil)
 
+(global-set-key (kbd "C-+") 'avy-goto-word-or-subword-1)
+
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -23,7 +25,15 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     clojure
+     rust
      go
+     ansible
+     python
+     nginx
+     yaml
+     graphviz
+     html
      sql
      ruby
      markdown
@@ -38,7 +48,6 @@ values."
      emacs-lisp
      git
      sml
-     msetek
      racket
      ocaml
      haskell
@@ -55,12 +64,13 @@ values."
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
+     msetek
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(google-this)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -260,6 +270,8 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
+  (push '(ensime . "melpa-stable") package-pinned-packages)
   )
 
 (defun dotspacemacs/user-config ()
@@ -269,21 +281,13 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
+  ;; Borrowed from Emacs-guru Magnar Sveen
+  (defun cleanup-buffer ()
+    "Perform a bunch of operations on the whitespace content of a buffer.
+Including indent-buffer, which should not be called automatically on save."
+    (interactive)
+    (untabify-buffer)
+    (delete-trailing-whitespace)
+    (indent-buffer))
   )
-
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (projectile-rails inflections go-guru go-eldoc go-mode typit mmt pacmacs dash-functional 2048-game slime-company slime sql-indent noflet ensime sbt-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby mmm-mode markdown-toc gh-md web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc uuidgen toc-org org-plus-contrib org-bullets link-hint intero flycheck hlint-refactor hide-comnt helm-hoogle git-link eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff dumb-jump f company-ghci company-ghc company column-enforce-mode ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe utop use-package tuareg swift-mode spacemacs-theme spaceline smooth-scrolling smeargle shm scala-mode restart-emacs rainbow-delimiters racket-mode quelpa popwin persp-mode pcre2el paradox page-break-lines orgit open-junk-file ocp-indent ob-sml neotree move-text merlin markdown-mode magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-ag haskell-snippets google-translate golden-ratio gitconfig-mode gitattributes-mode git-timemachine git-messenger ghc flx-ido fill-column-indicator feature-mode fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word coffee-mode cmm-mode clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

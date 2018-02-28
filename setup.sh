@@ -14,6 +14,12 @@ macos_full_keyboard_access() {
     defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 }
 
+macos_hide_desktop_icons() {
+    echo "Hiding all desktop icons"
+    defaults write com.apple.finder CreateDesktop false
+    killall Finder &> /dev/null
+}
+
 brew_cask_installed() {
     brew cask info $1 &> /dev/null
 }
@@ -136,6 +142,7 @@ logout_user() {
 
 macos_dock
 macos_full_keyboard_access
+macos_hide_desktop_icons
 install_dotfiles
 configure_emacs
 configure_anyenv

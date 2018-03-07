@@ -1,3 +1,3 @@
-if [[ hash thefuck &> /dev/null ]]; then
+if hash thefuck &> /dev/null; then
     eval "$(thefuck --alias)"
 fi

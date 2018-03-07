@@ -260,6 +260,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
   (push '(ensime . "melpa-stable") package-pinned-packages)
+
+  (setq source-directory "/Users/martin/repos/emacs")
   )
 
 (defun dotspacemacs/user-config ()
@@ -287,5 +289,4 @@ Including indent-buffer, which should not be called automatically on save."
   (setq mac-right-option-modifier nil)
 
   (global-set-key (kbd "C-+") 'avy-goto-word-or-subword-1)
-
   )

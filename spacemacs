@@ -28,6 +28,7 @@ values."
      ansible
      clojure
      common-lisp
+     csv
      emacs-lisp
      games
      git
@@ -39,6 +40,7 @@ values."
      markdown
      nginx
      ocaml
+     php
      python
      racket
      ruby

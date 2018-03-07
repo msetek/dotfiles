@@ -75,12 +75,16 @@ dude() {
 
 alias be='bundle exec '
 
-pwg ()
-{
+pwg () {
     pwsafe --list -l | grep -C3 -i "$1"
 }
 
-pw ()
-{
+pw () {
     pwsafe -pE "$1" | pbcopy
+}
+
+findf() {
+    local fname="$1"
+
+    find . -type f -iname "*${fname}*" 
 }

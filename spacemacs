@@ -284,6 +284,29 @@ Including indent-buffer, which should not be called automatically on save."
     (delete-trailing-whitespace)
     (indent-buffer))
 
+  ;; Neotree setup
+
+  ;;; Every time when the neotree window is opened, let it find current file and jump to node.
+  (setq neo-smart-open t)
+
+  ;;; When running ‘projectile-switch-project’ (C-c p p), ‘neotree’ will change root automatically.
+  (setq projectile-switch-project-action 'neotree-projectile-action)
+
+  ;;; NeoTree can be opened (toggled) at projectile project root
+  (defun neotree-project-dir ()
+    "Open NeoTree using the git root."
+    (interactive)
+    (let ((project-dir (projectile-project-root))
+          (file-name (buffer-file-name)))
+      (neotree-toggle)
+      (if project-dir
+          (if (neo-global--window-exists-p)
+              (progn
+                (neotree-dir project-dir)
+                (neotree-find file-name)))
+        (message "Could not find git project root."))))
+
+  (global-set-key [f8] 'neotree-project-dir)
 
   ;; Unmap the right option (aka. "alt gr" / "right alt") key so that one can type
   ;; stuff like [], {} and | on norwegian keyboard layout. Now, the only meta-key

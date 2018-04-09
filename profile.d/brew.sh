@@ -3,6 +3,7 @@ setup_bash_completion() {
         local -r completion_file="$(brew --prefix)/etc/bash_completion"
         if [[ ! -r $completion_file ]]; then
             echo "Installing missing bash completion.. Please wait"
+            hash -r
             brew update && brew install bash-completion
         fi
         source "$(brew --prefix)/etc/bash_completion"

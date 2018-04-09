@@ -1,5 +1,9 @@
 # -*- sh -*-
 
+if [[ -r ~/.env ]]; then
+    source ~/.env
+fi
+
 # Per user bash config files
 for script in ~/.profile.d/*; do
   if [[ -r $script ]]; then

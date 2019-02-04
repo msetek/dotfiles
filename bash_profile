@@ -16,3 +16,5 @@ done
 #     source $script
 # done
 
+
+export PATH="$HOME/.cargo/bin:$PATH"

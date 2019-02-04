@@ -12,6 +12,7 @@ tre() {
     local args
     if [[ -d node_modules ]]; then
         args="-I node_modules"
+        echo "Ignoring the node_modules dir"
     fi
 
     tree $args

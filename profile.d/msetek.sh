@@ -27,6 +27,7 @@ cdroot() {
     fi
 }
 
+# git-trim might be better...
 git-cleanup() {
     git remote prune origin &&
         git branch -r |
@@ -87,8 +88,15 @@ pw () {
 findf() {
     local fname="$1"
 
-    find . -type f -iname "*${fname}*" 
+    find . -type f -iname "*${fname}*"
 }
+
+findd() {
+    local dname="$1"
+
+    find . -type d -iname "*${dname}*"
+}
+
 
 top10() {
     history |
@@ -109,8 +117,73 @@ favicon() {
             -delete 0 -alpha off -colors 256 favicon.ico
 }
 
-alias l='ls -1aF '
+n() {
+    local subcmd="$1"
+
+    if [[ -z $1 ]]; then
+        echo "No subcommand given"
+        return
+    fi
+
+    case $subcmd in
+        s) npm run start;;
+        *) echo "Unknown subcommand $subcmd";;
+    esac
+}
+
+backup() {
+    local subcmd="$1"
+
+    if [[ -z $1 ]]; then
+        echo "No subcommand given"
+        return
+    fi
+
+    case $subcmd in
+        on) sudo sysctl debug.lowpri_throttle_enabled=0 ;;
+        off) sudo sysctl debug.lowpri_throttle_enabled=1 ;;
+        *) echo "Unknown subcommand $subcmd" ;;
+    esac
+}
+
+viewcert() {
+    local cert=$1
+
+    if [[ -z $1 ]]; then
+        echo "No cert file given"
+        return
+    fi
+
+    openssl x509 -in "$cert" -noout -text
+}
+
+gencert() {
+    local server="$1"
+
+    if [[ -z $1 ]]; then
+        read -ep "Server name: " server
+    fi
+
+    openssl req -nodes -newkey rsa:2048 -sha256 -keyout ${server}-private.key -out ${server}.csr
+}
+
+hw() {
+    system_profiler SPHardwareDataType
+}
+
+myip() {
+    curl icanhazip.com
+}
+
+alias l='ls -1aFG '
+alias ll='ls -CaFG '
 alias b='bat --plain '
 alias bb='bat '
 alias agg='ag --ignore node_modules --ignore dist '
+alias g='git '
+alias t1='tree -L 1 '
+alias t2='tree -L 2 '
+alias epoch='date +%s'
 
+export MAIL='martin@setek.org'
+export BASH_SILENCE_DEPRECATION_WARNING=1
